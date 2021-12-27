@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  jupyterlab-server:
+    build:
+      args:
+        - username=${USER}
+        - uid=${UID}
+        - gid=${GID}
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    volumes:
+      - /media/edoardo/Data9/Documents:/home/edo/Notebooks
+    init: true
+    stdin_open: true
+    tty: true
